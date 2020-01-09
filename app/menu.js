@@ -252,7 +252,7 @@ export default class MenuBuilder {
             label: 'Documentation',
             click() {
               shell.openExternal(
-                'https://github.com/atom/electron/tree/master/docs#readme'
+                'https://github.com/tranphuquy19/electron-react-subnet-mask-calculator'
               );
             }
           },
@@ -265,7 +265,7 @@ export default class MenuBuilder {
           {
             label: 'Search Issues',
             click() {
-              shell.openExternal('https://github.com/atom/electron/issues');
+              shell.openExternal('https://github.com/tranphuquy19/electron-react-subnet-mask-calculator/issues');
             }
           }
         ]

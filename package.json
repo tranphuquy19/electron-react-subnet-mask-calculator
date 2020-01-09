@@ -1,7 +1,7 @@
 {
   "name": "subnet-calculator",
   "productName": "SubnetCalculator",
-  "version": "0.18.1",
+  "version": "1.0.0",
   "description": "Subnet mask calculation application",
   "scripts": {
     "build": "concurrently \"yarn build-main\" \"yarn build-renderer\"",
@@ -130,7 +130,7 @@
     "hot",
     "reload"
   ],
-  "homepage": "https://https://github.com/tranphuquy19/electron-react-subnet-mask-calculator",
+  "homepage": "https://github.com/tranphuquy19/electron-react-subnet-mask-calculator",
   "jest": {
     "testURL": "http://localhost/",
     "moduleNameMapper": {
