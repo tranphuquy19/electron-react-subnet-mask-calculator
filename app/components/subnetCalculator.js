@@ -2,11 +2,12 @@
  * Created by @tranphuquy19 on 11/01/2020
  * @author: tranphuquy19@gmail.com
  */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import { Slider } from 'antd';
+import { calculate } from '../utils/subnetCalculator';
 
 const SubnetCalculator = () => {
   const [ipValue, setIpValue] = useState({
@@ -17,10 +18,27 @@ const SubnetCalculator = () => {
     preNumber: 24
   });
 
-  const marks = {
-    1: '1',
-    31: '31'
-  };
+  const [result, setResult] = useState({
+    bitmask: '??',
+    maskLong: 'xxxxxxxx',
+    netLong: 'xxxxxxxx',
+    size: 'xxx',
+    base: '?.?.?.?',
+    mask: 'xxx.xxx.xxx.xxx',
+    hostmask: 'xxx.xxx.xxx.xxx',
+    first: 'xxx.xxx.xxx.xxx',
+    last: 'xxx.xxx.xxx.xxx',
+    broadcast: 'xxx.xxx.xxx.xxx',
+    baseBinay: '?.?.?.?',
+    maskBinary: 'x.x.x.x',
+    firstBinary: 'x.x.x.x',
+    lastBinary: 'x.x.x.x',
+    availableHost: 'xxx'
+  });
+
+  useEffect(() => {
+    setResult(calculate(ipValue));
+  }, [ipValue]);
 
   const handleInputOnChange = e => {
     const { name, value } = e.target;
@@ -41,10 +59,9 @@ const SubnetCalculator = () => {
 
   return (
     <div className="mt-3">
-      <Card bg="light">
-        <Card.Header>Input</Card.Header>
+      <Card bg="dark text-white">
+        <Card.Header>IPv4 network address</Card.Header>
         <Card.Body>
-          <Card.Title>IPv4 network address</Card.Title>
           <Form>
             <Form.Row style={{ maxWidth: '33em' }}>
               <Col>
@@ -109,14 +126,24 @@ const SubnetCalculator = () => {
               </Col>
             </Form.Row>
             <Slider
-              marks={marks}
               min={1}
-              max={31}
+              max={30}
               defaultValue={ipValue.preNumber}
               value={ipValue.preNumber}
               onChange={onSliderChange}
+              className="mr-4"
             />
           </Form>
+          <p>Network: <b>{`${result.base}`}</b></p>
+          <p>Subnet mask: <b>{`${result.mask}`}</b></p>
+          <p>Host: <b>{`${result.first} - ${result.last}`}</b></p>
+          <p>Broadcast: <b>{`${result.broadcast}`}</b></p>
+          <p>Available host: <b>{`${result.availableHost}`}</b></p>
+          <hr />
+          <p>Network: <b>{`${result.baseBinary}`}</b></p>
+          <p>Subnet mask: <b>{`${result.maskBinary}`}</b></p>
+          <p>Host: <b>{`${result.firstBinary} - ${result.lastBinary}`}</b></p>
+          <p>Broadcast: <b>{`${result.broadcastBinary}`}</b></p>
         </Card.Body>
       </Card>
     </div>
