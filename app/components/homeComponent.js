@@ -12,7 +12,7 @@ import 'antd/dist/antd.css';
 
 const HomeComponent = () => {
   return (
-    <Container fluid className="bg-light" style={{ fontSize: '0.85em' }}>
+    <Container fluid className="bg-dark text-light" style={{ fontSize: '0.85em' }}>
       <Row>
         <Col sm={8} md={9}>
           <CalculatorComponent />

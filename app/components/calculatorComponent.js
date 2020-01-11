@@ -11,7 +11,7 @@ import MaskConverter from './maskConverter';
 
 const CalculatorComponent = () => {
   return (
-    <Tabs defaultActiveKey="subnet" id="calculator">
+    <Tabs defaultActiveKey="subnet" id="calculator" variant="dark">
       <Tab title="SUBNET CALCULATOR" eventKey="subnet">
         <SubnetCalculator />
       </Tab>
