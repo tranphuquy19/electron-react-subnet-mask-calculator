@@ -5,20 +5,26 @@
 import React from 'react';
 import CalculatorComponent from './calculatorComponent';
 import HistorySideBarComponent from './historySidebarComponent';
-import { Col, Container, Row } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import 'antd/dist/antd.css';
+import { Layout } from 'antd';
 
 const HomeComponent = () => {
   return (
-    <Container fluid className="bg-light">
-      <Row>
-        <Col md={9}>
-          <CalculatorComponent/>
-        </Col>
-        <Col md={3}>
-          <HistorySideBarComponent/>
-        </Col>
-      </Row>
-    </Container>
+    <Layout>
+      <Container fluid className="bg-light" style={{fontSize: '0.85em'}}>
+        <Row>
+          <Col sm={8} md={9}>
+            <CalculatorComponent/>
+          </Col>
+          <Col sm={4} md={3} className="border-left border-dark">
+            <HistorySideBarComponent/>
+          </Col>
+        </Row>
+      </Container>
+    </Layout>
   );
 };
 

@@ -3,15 +3,25 @@
  * @author: tranphuquy19@gmail.com
  */
 import React from 'react';
-import { ButtonToolbar, Col, Row } from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
-
+import Tabs from 'react-bootstrap/Tabs';
+import Tab from 'react-bootstrap/Tab';
+import SubnetCalculator from './subnetCalculator';
+import VlsmCalculator from './vlsmCalculator';
+import MaskConverter from './maskConverter';
 
 const CalculatorComponent = () => {
   return (
-    <div>
-      <h1>Subnet Calculator</h1>
-    </div>
+    <Tabs defaultActiveKey="subnet" id="calculator">
+      <Tab title="SUBNET CALCULATOR" eventKey="subnet">
+        <SubnetCalculator/>
+      </Tab>
+      <Tab title="VLSM CALCULATOR" eventKey="vlsm">
+        <VlsmCalculator/>
+      </Tab>
+      <Tab title="MASK CONVERTER" eventKey="m-converter">
+        <MaskConverter/>
+      </Tab>
+    </Tabs>
   );
 };
 
