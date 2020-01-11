@@ -13,17 +13,16 @@ const CalculatorComponent = () => {
   return (
     <Tabs defaultActiveKey="subnet" id="calculator">
       <Tab title="SUBNET CALCULATOR" eventKey="subnet">
-        <SubnetCalculator/>
+        <SubnetCalculator />
       </Tab>
       <Tab title="VLSM CALCULATOR" eventKey="vlsm">
-        <VlsmCalculator/>
+        <VlsmCalculator />
       </Tab>
       <Tab title="MASK CONVERTER" eventKey="m-converter">
-        <MaskConverter/>
+        <MaskConverter />
       </Tab>
     </Tabs>
   );
 };
 
 export default CalculatorComponent;
-

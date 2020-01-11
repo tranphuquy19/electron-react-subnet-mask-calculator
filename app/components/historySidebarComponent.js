@@ -5,12 +5,7 @@
 import React from 'react';
 
 const HistorySideBarComponent = () => {
-  return (
-    <div>
-      HistorySideBarComponent
-    </div>
-  );
+  return <div>HistorySideBarComponent</div>;
 };
 
 export default HistorySideBarComponent;
-

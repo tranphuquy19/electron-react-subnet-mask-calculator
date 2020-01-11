@@ -8,7 +8,7 @@ const Root = () => {
   return (
     <div>
       <Store>
-        <HomeComponent/>
+        <HomeComponent />
       </Store>
     </div>
   );

@@ -5,6 +5,7 @@
 import React, { useState } from 'react';
 import { HistoryContext } from './contexts/historyContext';
 
+// eslint-disable-next-line react/prop-types
 const Store = ({ children }) => {
   const [history, setHistory] = useState([]);
 

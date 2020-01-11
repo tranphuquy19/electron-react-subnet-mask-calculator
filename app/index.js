@@ -7,7 +7,7 @@ const AppContainer = process.env.PLAIN_HMR ? Fragment : ReactHotAppContainer;
 
 render(
   <AppContainer>
-    <Root/>
+    <Root />
   </AppContainer>,
   document.getElementById('root')
 );

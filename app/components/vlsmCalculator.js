@@ -5,12 +5,7 @@
 import React from 'react';
 
 const VlsmCalculator = () => {
-  return (
-    <div>
-      VlsmCalculator
-    </div>
-  );
+  return <div>VlsmCalculator</div>;
 };
 
 export default VlsmCalculator;
-
