@@ -11,11 +11,11 @@ import { calculate } from '../utils/subnetCalculator';
 
 const SubnetCalculator = () => {
   const [ipValue, setIpValue] = useState({
-    octet1: 192,
-    octet2: 168,
-    octet3: 1,
-    octet4: 0,
-    preNumber: 24
+    octet1: '192',
+    octet2: '168',
+    octet3: '1',
+    octet4: '0',
+    preNumber: '24'
   });
 
   const [result, setResult] = useState({
@@ -42,11 +42,33 @@ const SubnetCalculator = () => {
 
   const handleInputOnChange = e => {
     const { name, value } = e.target;
-    const ipValueTemp = {
-      ...ipValue,
-      [name]: value
-    };
-    setIpValue(ipValueTemp);
+
+    switch (name) {
+      case 'preNumber':
+        if (value == '')
+          setIpValue({
+            ...ipValue,
+            preNumber: '1'
+          });
+        else
+          setIpValue({
+            ...ipValue,
+            preNumber: String(value)
+          });
+        break;
+      default:
+        if (value == '')
+          setIpValue({
+            ...ipValue,
+            [name]: '0'
+          });
+        else
+          setIpValue({
+            ...ipValue,
+            [name]: String(value)
+          });
+        break;
+    } //end switch
   };
 
   const onSliderChange = value => {
@@ -128,22 +150,40 @@ const SubnetCalculator = () => {
             <Slider
               min={1}
               max={30}
-              defaultValue={ipValue.preNumber}
-              value={ipValue.preNumber}
+              defaultValue={Number(ipValue.preNumber)}
+              value={Number(ipValue.preNumber)}
               onChange={onSliderChange}
               className="mr-4"
             />
           </Form>
-          <p>Network: <b>{`${result.base}`}</b></p>
-          <p>Subnet mask: <b>{`${result.mask}`}</b></p>
-          <p>Host: <b>{`${result.first} - ${result.last}`}</b></p>
-          <p>Broadcast: <b>{`${result.broadcast}`}</b></p>
-          <p>Available host: <b>{`${result.availableHost}`}</b></p>
+          <p>
+            Network: <b>{`${result.base}`}</b>
+          </p>
+          <p>
+            Subnet mask: <b>{`${result.mask}`}</b>
+          </p>
+          <p>
+            Host: <b>{`${result.first} - ${result.last}`}</b>
+          </p>
+          <p>
+            Broadcast: <b>{`${result.broadcast}`}</b>
+          </p>
+          <p>
+            Available host: <b>{`${result.availableHost}`}</b>
+          </p>
           <hr />
-          <p>Network: <b>{`${result.baseBinary}`}</b></p>
-          <p>Subnet mask: <b>{`${result.maskBinary}`}</b></p>
-          <p>Host: <b>{`${result.firstBinary} - ${result.lastBinary}`}</b></p>
-          <p>Broadcast: <b>{`${result.broadcastBinary}`}</b></p>
+          <p>
+            Network: <b>{`${result.baseBinary}`}</b>
+          </p>
+          <p>
+            Subnet mask: <b>{`${result.maskBinary}`}</b>
+          </p>
+          <p>
+            Host: <b>{`${result.firstBinary} - ${result.lastBinary}`}</b>
+          </p>
+          <p>
+            Broadcast: <b>{`${result.broadcastBinary}`}</b>
+          </p>
         </Card.Body>
       </Card>
     </div>
